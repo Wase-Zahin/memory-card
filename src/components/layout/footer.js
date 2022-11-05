@@ -19,7 +19,7 @@ const Footer = () => {
             <a href='https://github.com/Wase-Zahin'>
             <img 
             className='icon' 
-            src={require('../icons&pics/github-icon.png')}
+            src={require('../../icons&pics/github-icon.png')}
             alt='github'>
             </img>
             </a>

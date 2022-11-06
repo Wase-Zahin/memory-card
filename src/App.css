@@ -2,6 +2,12 @@ body {
     background-image: url('./icons&pics/stadium1.jpg');
 }
 
+.imgDiv {
+    height: fit-content;
+    width: fit-content;
+}
+
 .card:hover {
+    cursor: pointer;
     transform: scale(1.1, 1.1);
 }

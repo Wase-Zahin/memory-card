@@ -7,36 +7,40 @@ const MainContainer = styled.div`
     color: white;
     padding: 1rem;
     margin: auto;
-    gap: 1rem;
+    gap: 0.5rem;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 `
-
-const elems = Arr.map((elem) => {
-    return elem;
-})
 
 const Main = () => {
     const [arr, setArr] = useState(Arr)
 
-    const shuffleArrayOnClick = (newArr) => {
-        var newArr = Arr;
-        for (let i = newArr.length - 1; i > 0; i--) {
+    const shuffle = ([...array]) => {
+        for (let i = arr.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
-            var tmp = newArr[i];
-            newArr[i] = newArr[j];
-            newArr[j] = tmp;
+            var tmp = array[i];
+            array[i] = array[j];
+            array[j] = tmp;
         }
-        setArr(newArr);
-        return newArr;
+        console.log('hi')
+        return array;
+    }
+
+    const shuffleOnClick = () => {
+        const onClickShuffle = shuffle(arr)
+        setArr(onClickShuffle);
     }
 
     useEffect(() => {
-        shuffleArrayOnClick(arr);
-    })
+        const initialShuffle = shuffle(arr);
+        setArr(initialShuffle);
+
+    }, [])
 
     return (
         <MainContainer>
-            {arr}
+            {arr.map((elem) => {
+                return <div className="imgDiv" onClick={shuffleOnClick}>{elem}</div>
+            })}
         </MainContainer>
     )
 }

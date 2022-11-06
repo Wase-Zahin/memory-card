@@ -1,0 +1,7 @@
+body {
+    background-image: url('./icons&pics/stadium1.jpg');
+}
+
+.card:hover {
+    transform: scale(1.1, 1.1);
+}

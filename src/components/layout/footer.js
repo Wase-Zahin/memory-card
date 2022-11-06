@@ -7,8 +7,7 @@ const FooterContainer = styled.footer`
     margin-top: 2.5rem;
     height: 3rem;
     width: 100%;
-    background-color: #3C4048;
-    color: white;
+    background-color: white;
     gap: 0.5rem;
 `
 

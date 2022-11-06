@@ -4,24 +4,39 @@ import Arr from "../utils/arr";
 
 const MainContainer = styled.div`
     display: grid;
-    background-color: red;
     color: white;
     padding: 1rem;
     margin: auto;
     gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    border: 2px solid black;
 `
 
 const elems = Arr.map((elem) => {
-    return elem
+    return elem;
 })
 
 const Main = () => {
-    const [arr, setArr] = useState(['hello, hell, hel, he, h'])
+    const [arr, setArr] = useState(Arr)
+
+    const shuffleArrayOnClick = (newArr) => {
+        var newArr = Arr;
+        for (let i = newArr.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var tmp = newArr[i];
+            newArr[i] = newArr[j];
+            newArr[j] = tmp;
+        }
+        setArr(newArr);
+        return newArr;
+    }
+
+    useEffect(() => {
+        shuffleArrayOnClick(arr);
+    })
+
     return (
         <MainContainer>
-            {elems}
+            {arr}
         </MainContainer>
     )
 }

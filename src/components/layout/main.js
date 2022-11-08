@@ -12,7 +12,13 @@ const MainContainer = styled.div`
 `
 
 const Main = () => {
-    const [arr, setArr] = useState(Arr)
+    const [arr, setArr] = useState(Arr);
+    const [checkerArr, setCheckerArr] = useState([]);
+    const [score, setScore] = useState(0);
+
+    const checker = (e) => {
+        if (checkerArr.contains(e.target.src)) {}
+    }
 
     const shuffle = ([...array]) => {
         for (let i = arr.length - 1; i > 0; i--) {
@@ -21,13 +27,15 @@ const Main = () => {
             array[i] = array[j];
             array[j] = tmp;
         }
-        console.log('hi')
         return array;
     }
 
-    const shuffleOnClick = () => {
+    const shuffleOnClick = (e) => {
         const onClickShuffle = shuffle(arr)
         setArr(onClickShuffle);
+
+        setCheckerArr(current => [...current, e.target.src]);
+        console.log(checkerArr);
     }
 
     useEffect(() => {

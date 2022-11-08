@@ -14,13 +14,26 @@ const MainContainer = styled.div`
 const Main = () => {
     const [arr, setArr] = useState(Arr);
     const [checkerArr, setCheckerArr] = useState([]);
-    const [score, setScore] = useState(0);
+    const [currentScore, setCurrentScore] = useState(0);
+    const [bestScore, setBestScore] = useState(0);
 
-    const checker = (e) => {
-        if (checkerArr.contains(e.target.src)) {}
+    const check = (e) => {
+        if (checkerArr.includes(e.target.src)) {
+            console.log(true);
+            // reset current score and checker array
+            setCurrentScore(0);
+            setCheckerArr([]);
+        }
+        else {
+            console.log(false)
+            // increment curr soore by 1 and
+            // push element to checker array on click
+            setCurrentScore(prevScore => prevScore + 1);
+            setCheckerArr(current => ([...current, e.target.src]));
+        };
     }
 
-    const shuffle = ([...array]) => {
+    const shuffle = ([...array]) => { //shuffle logic
         for (let i = arr.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
             var tmp = array[i];
@@ -31,18 +44,20 @@ const Main = () => {
     }
 
     const shuffleOnClick = (e) => {
+        // check if card is already clicked 
+        check(e); 
+        //shuffle on click
         const onClickShuffle = shuffle(arr)
         setArr(onClickShuffle);
 
-        setCheckerArr(current => [...current, e.target.src]);
-        console.log(checkerArr);
     }
 
-    useEffect(() => {
+    useEffect(() => { //shuffle on page load
         const initialShuffle = shuffle(arr);
         setArr(initialShuffle);
+        console.log(checkerArr);
 
-    }, [])
+    }, [checkerArr])
 
     return (
         <MainContainer>

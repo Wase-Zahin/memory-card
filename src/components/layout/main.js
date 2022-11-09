@@ -9,7 +9,7 @@ const MainContainer = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 `
 
-const Main = ({shuffleOnClick, arr}) => {
+const Main = ({ shuffleOnClick, arr }) => {
     return (
         <MainContainer>
             {arr.map((elem) => {

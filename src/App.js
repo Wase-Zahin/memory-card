@@ -1,6 +1,6 @@
 import './App.css';
 import Arr from './components/utils/arr'
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Header from './components/layout/header';
 import Footer from './components/layout/footer';
 import Main from './components/layout/main';
@@ -13,34 +13,34 @@ function App() {
 
   const check = (e) => {
     if (checkerArr.includes(e.target.src)) {
-        // reset current score and checker array
-        setCurrentScore(0);
-        setCheckerArr([]);
+      // reset current score and checker array
+      setCurrentScore(0);
+      setCheckerArr([]);
     }
     else {
-        // increment current soore by 1 and
-        // push element to checker array on click
-        setCurrentScore(prevScore => prevScore + 1);
-        setCheckerArr(current => ([...current, e.target.src]));
+      // increment current soore by 1 and
+      // push element to checker array on click
+      setCurrentScore(prevScore => prevScore + 1);
+      setCheckerArr(current => ([...current, e.target.src]));
     };
   }
 
   const shuffle = ([...array]) => { //shuffle logic
-      for (let i = arr.length - 1; i > 0; i--) {
-          var j = Math.floor(Math.random() * (i + 1));
-          var tmp = array[i];
-          array[i] = array[j];
-          array[j] = tmp;
-      }
-      return array;
+    for (let i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = array[i];
+      array[i] = array[j];
+      array[j] = tmp;
+    }
+    return array;
   }
 
   const shuffleOnClick = (e) => {
-      // check if card is already clicked 
-      check(e); 
-      //shuffle on click
-      const onClickShuffle = shuffle(arr)
-      setArr(onClickShuffle);
+    // check if card is already clicked 
+    check(e);
+    //shuffle on click
+    const onClickShuffle = shuffle(arr)
+    setArr(onClickShuffle);
 
   }
 
@@ -56,13 +56,13 @@ function App() {
   return (
     <div className="App">
       <Header
-      currentScore={currentScore}
-      bestScore={bestScore}>
+        currentScore={currentScore}
+        bestScore={bestScore}>
       </Header>
 
-      <Main 
-      shuffleOnClick={shuffleOnClick}
-      arr={arr}>
+      <Main
+        shuffleOnClick={shuffleOnClick}
+        arr={arr}>
       </Main>
 
       <Footer></Footer>

@@ -14,13 +14,13 @@ const FooterContainer = styled.footer`
 const Footer = () => {
     return (
         <FooterContainer>
-            Copyright © 2022 Zahin 
+            Copyright © 2022 Zahin
             <a href='https://github.com/Wase-Zahin'>
-            <img 
-            className='icon' 
-            src={require('../../icons&pics/github-icon.png')}
-            alt='github'>
-            </img>
+                <img
+                    className='icon'
+                    src={require('../../icons&pics/github-icon.png')}
+                    alt='github'>
+                </img>
             </a>
         </FooterContainer>
     )
